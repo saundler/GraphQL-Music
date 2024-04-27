@@ -1,0 +1,36 @@
+scalar Long
+
+type Query {
+    songs: [Song]!
+    # song(id: Long): Song
+    playlists: [Playlist]!
+    songById(id: ID!): Song
+
+}
+
+
+type Mutation {
+    addSong(title: String, artist: String): Song
+    addSongToPlaylist(songId: ID!, playlistId: ID!): Song
+    addSongsBatch(songs: [SongInput]!): [Song]
+}
+
+input SongInput {
+    title: String!
+    artist: String!
+    playlistId: ID
+}
+
+type Song {
+    id: Long!
+    title: String!
+    artist: String!
+    playlistId: Int
+    playlist: Playlist
+}
+
+type Playlist {
+    id: Long!
+    title: String!
+    imageUrl: String
+}

@@ -1,0 +1,23 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-playlist
+      author: lucy
+      changes:
+        - createTable:
+            tableName: playlists
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: title
+                  type: varchar(200)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: image_url
+                  type: varchar(200)

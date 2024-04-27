@@ -1,0 +1,30 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-song
+      author: lucy
+      changes:
+        - createTable:
+            tableName: songs
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: title
+                  type: varchar(200)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: artist
+                  type: varchar(200)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: playlist_id
+                  type: bigint
+                  constraints:
+                    foreignKeyName: playlist_id
